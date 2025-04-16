@@ -3,37 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>R-visions - Ressources Pédagogiques</title>
+  <title>Revisions</title>
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 <body>
-  <!-- Notification -->
   <div id="notification">
-    Bienvenue sur la plateforme R-visions !
+    Bienvenue sur la plateforme Revisions !
   </div>
 
   <!-- Navigation -->
   <nav>
     <a href="index.html">Accueil</a>
-    <a href="outils-de-physique1.html">Physique I</a>
-    <a href="outils-de-physique2.html">Physique II</a>
-    <a href="analyse-3d-1.html">Analyse 3D I</a>
-    <a href="analyse-3d-2.html">Analyse 3D II</a>
-    <a href="sujet-entrainement.html">Sujets d'Entrainement</a>
-  </nav>
+      <a href="outils-de-physique1.html">Sujet 1 - Physique </a> |
+      <a href="outils-de-physique2.html">Sujet 2 - Physique</a> |
+      <a href="analyse-3d-1.html">Sujet 1 - Analyse 3D </a> |
+      <a href="analyse-3d-2.html">Sujet 2 - Analyse 3D</a> |
+      <a href="sujet-entrainement.html">Sujets d'Entrainement</a> |
+    </nav>
 
-  <h1>Bienvenue sur R-visions</h1>
+  <h1>Bienvenue sur Revisions</h1>
   
   <div class="section">
-    <h2>Plateforme de révision pour les sciences</h2>
+    <h2>Plateforme de révision pour le TOMIC</h2>
     <p>
       Explorez nos ressources pédagogiques soigneusement élaborées pour vous aider à maîtriser 
       les concepts fondamentaux en physique, mathématiques et analyse 3D.
     </p>
     
     <p>
-      R-visions est conçu pour vous accompagner dans votre préparation aux examens TOMIC 
+      Revisions est conçu pour vous accompagner dans votre préparation aux examens TOMIC 
       avec des explications détaillées, des formules bien présentées et des corrections claires.
     </p>
   </div>
@@ -51,7 +50,7 @@
       <div class="formula">
         \( \ddot{x} + \omega_0^2 x = 0 \)
       </div>
-      <a href="outils-de-physique1.html">Voir le cours</a>
+      <a href="outils-de-physique1.html">Voir</a>
     </div>
     
     <!-- Physique Card 2 -->
@@ -61,7 +60,7 @@
         Approfondissez vos connaissances avec notre deuxième module de physique
         couvrant des concepts plus complexes.
       </p>
-      <a href="outils-de-physique2.html">Voir le cours</a>
+      <a href="outils-de-physique2.html">Voir</a>
     </div>
     
     <!-- Analyse 3D Card 1 -->
@@ -74,7 +73,7 @@
       <div class="formula">
         \( \vec{\text{rot}}(\vec{V}) = \nabla \times \vec{V} \)
       </div>
-      <a href="analyse-3d-1.html">Voir le cours</a>
+      <a href="analyse-3d-1.html">vectoriel</a>
     </div>
     
     <!-- Analyse 3D Card 2 -->
@@ -87,77 +86,24 @@
       <div class="formula">
         \( V(x,y) = x y \cdot \frac{12 - xy}{2(x + y)} \)
       </div>
-      <a href="analyse-3d-2.html">Voir le cours</a>
+      <a href="analyse-3d-2.html">Voir</a>
     </div>
   </div>
 
-  <div class="section">
-    <h2>Comment utiliser cette plateforme</h2>
-    <p>
-      Naviguez entre les différents sujets via le menu de navigation. 
-      Chaque page contient des explications détaillées, des formules mathématiques 
-      et des étapes de résolution clairement présentées.
-    </p>
-    <p>
-      Les formules mathématiques sont interactives : survolez-les pour les mettre en évidence !
-    </p>
-    <button class="btn" onclick="showNotification()">En savoir plus</button>
-  </div>
-
-  <div class="section">
+  <div class="card" style="margin-top: 20px; text-align: center;">
     <h2>Sujets d'entraînement</h2>
     <p>
-      Testez vos connaissances avec nos sujets d'entraînement spécialement conçus 
-      pour vous préparer aux examens.
+        Testez vos connaissances avec nos sujets d'entraînement spécialement conçus 
+        pour vous préparer aux examens.
     </p>
-    <a href="sujet-entrainement.html" class="btn">Accéder aux exercices</a>
-  </div>
+    <div style="display: flex; justify-content: center;">
+        <a href="sujet-entrainement.html" class="btn-exos">Accéder aux exercices</a>
+    </div>
+</div>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© réussit-ton-TOMIC.fr | R-visions 2025</p>
+    <p>© réussit-ton-TOMIC.fr</p>
   </footer>
-
-  <!-- Modal de confirmation -->
-  <div id="confirmModal">
-    <p>Souhaitez-vous afficher plus d'informations ?</p>
-    <button class="btn-yes" onclick="confirmYes()">Oui</button>
-    <button class="btn-no" onclick="confirmNo()">Non</button>
-  </div>
-
-  <script src="js/MathJax.js" async></script>
-  <script>
-    // Fonction pour afficher une notification
-    function showNotification() {
-      const notification = document.getElementById("notification");
-      notification.textContent = "Explorez nos ressources pour maximiser votre apprentissage !";
-      notification.style.display = 'block';
-      setTimeout(() => {
-        notification.style.display = 'none';
-      }, 3000);
-    }
-
-    function confirmYes() {
-      document.getElementById("confirmModal").style.display = 'none';
-      // Afficher plus d'informations ici si nécessaire
-    }
-
-    function confirmNo() {
-      document.getElementById("confirmModal").style.display = 'none';
-    }
-
-    // Afficher un message de bienvenue au chargement
-    window.onload = function() {
-      const shown = sessionStorage.getItem("shown");
-      if (!shown) {
-        const notif = document.getElementById("notification");
-        notif.style.display = 'block';
-        setTimeout(() => {
-          notif.style.display = 'none';
-          sessionStorage.setItem("shown", true);
-        }, 4000);
-      }
-    }
-  </script>
 </body>
 </html>

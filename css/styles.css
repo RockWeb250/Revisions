@@ -83,6 +83,28 @@ p {
     background-color: #374fc5;
   }
 
+  .btn-exos {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    margin: 15px auto;
+    width: auto;
+    max-width: 250px; 
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-exos:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
   #notification {
     display: none;
     background-color: #facc15;
