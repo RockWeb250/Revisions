@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Oscillateur harmonique</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+  <div id="notification">Bienvenue ! Cette page contient la correction interactive d'un oscillateur harmonique 📘</div>
+  <div id="confirmModal">
+    <p>Souhaites-tu afficher la correction ?</p>
+    <button class="btn-yes" onclick="confirmYes()">Oui</button>
+    <button class="btn-no" onclick="confirmNo()">Non</button>
+  </div>
+
+  <nav>
+    <a href="outils-de-physique1.html">Sujet 1 - Physique </a> |
+    <a href="outils-de-physique2.html">Sujet 2 - Physique</a> |
+    <a href="analyse-3d-1.html">Sujet 1 - Analyse 3D </a> |
+    <a href="analyse-3d-2.html">Sujet 2 - Analyse 3D</a> |
+    <a href="sujet-entrainement.html">Sujets d'Entrainement</a> |
+  </nav>
+
+  <h1>Correction – Oscillateur harmonique libre et forcé</h1>
+
+  <div class="section">
+    <h2>Énoncé</h2>
+    <p>Une bille de masse \(m\) est suspendue à un ressort vertical de constante de raideur \(k\) et oscille autour d'une position d'équilibre.</p>
+    <p>On note \(x(t)\) l'élongation de la bille par rapport à sa position d'équilibre à l'instant \(t\), positive vers le bas. Aucun frottement n’est considéré.</p>
+    <p>Conditions initiales : \(x(0) = 0{,}1\) m, \(v(0) = 0\) m/s</p>
+    <ul>
+      <li>1) À partir du PFD appliqué à la bille, montrer que l'équation différentielle du mouvement est :</li>
+      <div class="formula">$$\ddot{x} + \omega_0^2 x = 0$$</div>
+      <li>2) Résoudre cette équation avec les conditions initiales données.</li>
+      <li>3) En ajoutant une force externe de type \(f_e(t) = F_e \sin(\omega t)\), établir l'équation :</li>
+      <div class="formula">$$\omega_0^2 x = A_e \sin(\omega t)$$</div>  
+      <li>4) Déterminer la solution complète du système en régime libre puis en régime forcé.</li>
+    </ul>
+    <button class="btn-correction" onclick="showConfirm()">Correction</button>
+  </div>
+
+  <div class="correction-content" id="correctionContent">
+    <div class="section">
+      <h2>Partie I – Oscillateur harmonique libre</h2>
+      <p>On applique le principe fondamental de la dynamique :</p>
+      <div class="formula">$$ \sum F = m \ddot{x} $$</div>
+      <p>La seule force agissant est celle de rappel du ressort, opposée au déplacement :</p>
+      <div class="formula">$$ -k x = m \ddot{x} $$</div>
+      <p>On isole le terme \( \ddot{x} \) :</p>
+      <div class="formula">$$ \ddot{x} = -\frac{k}{m} x $$</div>
+      <p>On obtient l'équation différentielle :</p>
+      <div class="formula">$$ \ddot{x} + \omega_0^2 x = 0, \quad \text{avec } \omega_0^2 = \frac{k}{m} $$</div>
+
+      <p>Équation caractéristique :</p>
+      <div class="formula"> $$ r^2 + \omega_0^2 = 0 \Rightarrow r = \pm i \omega_0 $$</div>
+      <p>Donc solution générale :</p>
+      <div class="formula">$$ x(t) = A \cos(\omega_0 t) + B \sin(\omega_0 t) $$</div>
+
+      <p style="font-weight: bold;">Conditions initiales :</p>
+      <p>$$ x(0) = 0{,}1 $$ $$ v(0) = 0 $$</p>
+      <p>On en déduit : $$ A = 0{,}1 $$ $$ B = 0 $$</p>
+
+      <p style="font-weight: bold;">Donc :</p>
+      <div class="formula">$$ x(t) = 0{,}1 \cos(\omega_0 t), \quad v(t) = -0{,}1 \omega_0 \sin(\omega_0 t) $$</div>
+    </div>
+
+    <div class="section">
+      <h2>Partie II – Oscillateur harmonique forcé</h2>
+      <p>Équation avec excitation :</p>
+      <div class="formula">$$ \ddot{x} + \omega_0^2 x = A_e \sin(\omega t), \quad A_e = \frac{F_e}{m} $$</div>
+
+      <p>On pose une solution particulière :</p>
+      <div class="formula">$$ x_p(t) = C \sin(\omega t) $$</div>
+
+      <p>En remplaçant dans l’équation :</p>
+      <div class="formula">$$ -C \omega^2 \sin(\omega t) + \omega_0^2 C \sin(\omega t) = A_e \sin(\omega t) $$</div>
+      <p>On trouve :</p>
+      <div class="formula">$$ C = \frac{A_e}{\omega_0^2 - \omega^2} $$</div>
+
+      <p style="font-weight: bold;">Solution complète :</p>
+      <div class="formula">$$ x(t) = A \cos(\omega_0 t) + B \sin(\omega_0 t) + \frac{A_e}{\omega_0^2 - \omega^2} \sin(\omega t) $$</div>
+
+      <p style="font-weight: bold;">En régime forcé uniquement :</p>
+      <div class="formula">$$ x(t) = \frac{A_e}{\omega_0^2 - \omega^2} \sin(\omega t) $$</div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <p>© réussit-ton-TOMIC.fr</p>
+  </footer>
+
+  <script src="js/MathJax.js" async></script>
+  <script src="js/correction.js" async></script>
+</body>
+</html>

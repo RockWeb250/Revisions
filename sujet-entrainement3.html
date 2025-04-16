@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sujet d'entraînement – Intégrale double</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+  <nav>
+    <a href="outils-de-physique1.html">Sujet 1 - Physique </a> |
+    <a href="outils-de-physique2.html">Sujet 2 - Physique</a> |
+    <a href="analyse-3d-1.html">Sujet 1 - Analyse 3D </a> |
+    <a href="analyse-3d-2.html">Sujet 2 - Analyse 3D</a> |
+    <a href="sujet-entrainement.html">Sujets d'Entrainement</a> |
+  </nav>
+
+  <h1>Sujet d'entraînement – Intégrale double et changement d'ordre</h1>
+
+  <div class="section">
+    <h2>Énoncé</h2>
+    <p>On considère le domaine défini par :</p>
+    <div class="formula">\[ x \in [0,1], \quad y \in [x, 2 - x] \]</div>
+    <p>Calculer l’intégrale suivante :</p>
+    <div class="formula">\[ \iint_D (x + y) \, dx \, dy \]</div>
+    <button class="btn-correction" onclick="showConfirm()">Correction</button>
+  </div>
+
+  <div class="section" id="correctionContent" style="display: none;">
+    <h2>Correction</h2>
+    <p>On commence par intégrer en \( x \), pour une valeur fixée de \( y \in [0,1] \) :</p>
+    <div class="formula">\[ \int_y^{2 - y} (x + y) dx = \int_y^{2 - y} x \, dx + \int_y^{2 - y} y \, dx \]</div>
+
+    <p>Calcul de la première partie :</p>
+    <div class="formula">\[ \left[ \frac{x^2}{2} \right]_y^{2 - y} = \frac{(2 - y)^2 - y^2}{2} \]</div>
+
+    <p>Deuxième partie :</p>
+    <div class="formula">\[ y(2 - y - y) = y(2 - 2y) \]</div>
+
+    <p>On combine les deux :</p>
+    <div class="formula">\[ y(2 - 2y) + \frac{(2 - y)^2 - y^2}{2} = -2y^2 + 2 \]</div>
+
+    <p>Il reste à intégrer cela sur \( y \in [0, 1] \) :</p>
+    <div class="formula">\[ \int_0^1 (-2y^2 + 2) dy = \left[ -\frac{2y^3}{3} + 2y \right]_0^1 = -\frac{2}{3} + 2 = \boxed{\frac{4}{3}} \]</div>
+  </div>
+
+  <div id="confirmModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <p>Souhaites-tu afficher la correction ?</p>
+      <button class="btn-yes" onclick="confirmYes()">Oui</button>
+      <button class="btn-no" onclick="confirmNo()">Non</button>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <p>© réussit-ton-TOMIC.fr</p>
+  </footer>
+  
+  <script src="js/MathJax.js" async></script>
+  <script src="js/correction.js" async></script>
+</body>
+</html>

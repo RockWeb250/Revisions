@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sujet d'entraînement – Force de frottement proportionnelle à la vitesse</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <nav>
+        <a href="outils-de-physique1.html">Sujet 1 - Physique </a> |
+        <a href="outils-de-physique2.html">Sujet 2 - Physique</a> |
+        <a href="analyse-3d-1.html">Sujet 1 - Analyse 3D </a> |
+        <a href="analyse-3d-2.html">Sujet 2 - Analyse 3D</a> |
+        <a href="sujet-entrainement.html">Sujets d'Entrainement</a> |
+      </nav>
+
+  <h1>Sujet d'entraînement – Force de frottement proportionnelle à la vitesse</h1>
+
+  <div class="section">
+    <h2>Énoncé</h2>
+    <p>On considère un objet soumis à une force de frottement proportionnelle à sa vitesse, donnée par :</p>
+    <div class="formula">\[ \vec{F}_{\text{frott}} = -k \vec{v}(t) \]</div>
+    <p>On applique le principe fondamental de la dynamique :</p>
+    <div class="formula">\[ \sum \vec{F} = m \vec{a} = m \frac{d\vec{v}}{dt} \]</div>
+    <p>En déduire l’équation différentielle vérifiée par la vitesse, puis la résoudre en utilisant les conditions initiales suivantes :</p>
+    <ul>
+      <li>\( v(0) = v_0 \)</li>
+      <li>\( x(0) = 0 \)</li>
+    </ul>
+    <p>En déduire l’expression de la position \( x(t) \) de l’objet.</p>
+
+    <button class="btn-correction" onclick="showConfirm()">Correction</button>
+  </div>
+
+  <div class="section" id="correctionContent" style="display: none;">
+    <h2>Correction</h2>
+    <p>On part de l’équation :</p>
+    <div class="formula">\[ -k \vec{v}(t) = m \frac{d\vec{v}}{dt} \Rightarrow \frac{dv}{dt} = -\frac{k}{m} v \]</div>
+    <p>On sépare les variables :</p>
+    <div class="formula">\[ \frac{dv}{v} = -\frac{k}{m} dt \]</div>
+    <p>Intégration :</p>
+    <div class="formula">\[ \ln |v| = -\frac{k}{m}t + C \Rightarrow v(t) = A e^{-\frac{k}{m}t} \]</div>
+    <p>Avec \( v(0) = v_0 \), on obtient \( A = v_0 \), donc :</p>
+    <div class="formula">\[ v(t) = v_0 e^{-\frac{k}{m}t} \]</div>
+    <p>On en déduit la position :</p>
+    <div class="formula">\[ x(t) = \int v(t) dt = \int v_0 e^{-\frac{k}{m}t} dt = -\frac{m v_0}{k} e^{-\frac{k}{m}t} + C_1 \]</div>
+    <p>Avec \( x(0) = 0 \), on trouve \( C_1 = \frac{m v_0}{k} \), donc :</p>
+    <div class="formula">\[ \boxed{x(t) = -\frac{m v_0}{k} e^{-\frac{k}{m}t} + \frac{m v_0}{k}} \]</div>
+  </div>
+
+  <div id="confirmModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <p>Souhaites-tu afficher la correction ?</p>
+      <button class="btn-yes" onclick="confirmYes()">Oui</button>
+      <button class="btn-no" onclick="confirmNo()">Non</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© réussit-ton-TOMIC.fr</p>
+  </footer>
+
+  <script src="js/MathJax.js" async></script>
+  <script src="js/correction.js"></script>
+</body>
+</html>

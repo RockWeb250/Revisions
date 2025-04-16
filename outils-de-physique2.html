@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Correction - Prix au mètre carré</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+  <nav>
+    <a href="outils-de-physique1.html">Sujet 1 - Physique </a> |
+    <a href="outils-de-physique2.html">Sujet 2 - Physique</a> |
+    <a href="analyse-3d-1.html">Sujet 1 - Analyse 3D </a> |
+    <a href="analyse-3d-2.html">Sujet 2 - Analyse 3D</a> |
+    <a href="sujet-entrainement.html">Sujets d'Entrainement</a> |
+  </nav>
+
+  <h1>Correction – Prix au m² en Charente-Maritime</h1>
+
+  <div class="section">
+    <h2>1. Cohérence de l'expression du prix</h2>
+    <p>L'expression \(f(x, y) = 4000 - 50x\) dépend uniquement de \(x\), la distance à la côte.</p>
+    <p>La carte montre que le prix du mètre carré diminue en s'éloignant de la mer (le long de l'axe \(x\)), ce qui est cohérent avec cette formule. L'absence de dépendance en \(y\) semble donc justifiée.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Calcul de l'intégrale \(I\)</h2>
+    <p>Le domaine initial est un rectangle :</p>
+    <div class="formula">$$ D = [0, 50] \times [-30, 30] $$</div>
+    <p>On calcule :</p>
+    <div class="formula">$$ I = \int_0^{50} \int_{-30}^{30} (4000 - 50x) \, dy \, dx $$</div>
+    <p>Intégration en \(y\) :</p>
+    <div class="formula">$$ \int_{-30}^{30} (4000 - 50x) \, dy = (4000 - 50x) \cdot 60 $$</div>
+    <p>Intégration finale :</p>
+    <div class="formula">$$ I = 60 \int_0^{50} (4000 - 50x) \, dx = 60 \left[ 4000x - \frac{50x^2}{2} \right]_0^{50} = 60(200000 - 62500) = 8\,250\,000 $$</div>
+  </div>
+
+  <div class="section">
+    <h2>3. Prix moyen sur la région</h2>
+    <p>Surface du domaine \(S = 50 \times 60 = 3000\) km²</p>
+    <div class="formula">$$ f_{\text{moyen}} = \frac{I}{S} = \frac{8250000}{3000} = 2750 \, \text{€/m}^2 $$</div>
+  </div>
+
+  <div class="section">
+    <h2>4. Domaine trapézoïdal réel</h2>
+    <p>Le domaine est :</p>
+    <div class="formula">
+      $$ D = \left\{ (x, y) \in [0, 50] \times \left[ -30 + 0{,}5x,\; 30 - 0{,}5x \right] \right\} $$
+    </div>
+    <p>Pour \(x = 0\), on a \([-30, 30]\) → hauteur = 60</p>
+    <p>Pour \(x = 50\), on a \([-5, 5]\) → hauteur = 10</p>
+    <p>Donc aire d’un trapèze :</p>
+    <div class="formula">
+      $$ S = \frac{60 + 10}{2} \cdot 50 = 35 \cdot 50 = 1750 \, \text{km}^2 $$
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Prix moyen sur le domaine trapézoïdal</h2>
+    <p>On reprend la même fonction \(f(x, y) = 4000 - 50x\), et on intègre sur le domaine variable :</p>
+    <div class="formula">
+      $$ I = \int_0^{50} \int_{-30 + 0.5x}^{30 - 0.5x} (4000 - 50x) \, dy \, dx $$
+    </div>
+    <p>L'intégrale intérieure donne :</p>
+    <div class="formula">
+      $$ (4000 - 50x) \cdot \left[ (30 - 0.5x) - (-30 + 0.5x) \right] = (4000 - 50x) \cdot (60 - x) $$
+    </div>
+    <p>On intègre ensuite sur \(x\) :</p>
+    <div class="formula">
+      $$ I = \int_0^{50} (4000 - 50x)(60 - x) \, dx $$
+    </div>
+    <p>Développement :</p>
+    <div class="formula">
+      $$ = \int_0^{50} (240000 - 4000x - 3000x + 50x^2) \, dx = \int_0^{50} (240000 - 7000x + 50x^2) \, dx $$
+    </div>
+    <p>On calcule :</p>
+    <div class="formula">
+      $$ I = [240000x - \frac{7000x^2}{2} + \frac{50x^3}{3}]_0^{50} = 12000000 - 8750000 + \frac{125000}{3} = \frac{8250000}{3} $$
+    </div>
+    <p>Prix moyen sur le domaine réel :</p>
+    <div class="formula">
+      $$ f_{\text{moyen}} = \frac{I}{S} = \frac{\frac{8250000}{3}}{1750} \approx 1571.43 \, \text{€/m}^2 $$
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Comparaison des résultats</h2>
+    <p>Dans la question 3, le prix moyen était de 2750 €/m²  pour une surface rectangulaire.</p>
+    <p>Dans la question 5, sur le domaine réel trapézoïdal, on trouve un prix moyen d’environ 1571 €/m².</p>
+    <p>Conclusion : le prix moyen baisse nettement lorsqu’on considère la réalité géographique, car une partie importante du domaine se situe loin du littoral (donc moins chère).</p>
+  </div>
+  
+  <footer class="footer">
+    <p>© réussit-ton-TOMIC.fr</p>
+  </footer>
+
+  <script src="js/MathJax.js" async></script>
+  
+</body>
+</html>

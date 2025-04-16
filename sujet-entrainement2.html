@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sujet d'entraînement – Équation de température</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+    <nav>
+        <a href="outils-de-physique1.html">Sujet 1 - Physique </a> |
+        <a href="outils-de-physique2.html">Sujet 2 - Physique</a> |
+        <a href="analyse-3d-1.html">Sujet 1 - Analyse 3D </a> |
+        <a href="analyse-3d-2.html">Sujet 2 - Analyse 3D</a> |
+        <a href="sujet-entrainement.html">Sujets d'Entrainement</a> |
+      </nav>
+
+  <h1>Sujet d'entraînement – Température (loi de Newton du refroidissement)</h1>
+
+  <div class="section">
+    <h2>Énoncé</h2>
+    <p>On considère qu’un objet refroidit dans un environnement de température constante \( T_{\text{ext}} \) selon la loi :</p>
+<div class="formula">\[ \frac{dT}{dt} = -k (T(t) - T_{\text{ext}}) \]</div>
+    <p>où :</p>
+    <ul>
+        <li>\( T(t) \) est la température de l’objet à l’instant \( t \),</li>
+        <li>\( k \) est une constante positive,</li>
+        <li>\( T_{\text{ext}} \) est la température ambiante constante.</li>
+      </ul>
+    <p>On vous demande de :</p>
+    <ol>
+        <li>Séparer les variables et intégrer cette équation différentielle.</li>
+        <li>En déduire l’expression générale de \( T(t) \).</li>
+        <li>Utiliser la condition initiale \( T(0) = T_0 \) pour obtenir la solution complète.</li>
+      </ol>
+    <button class="btn-correction" onclick="showConfirm()">Correction</button>
+  </div>
+
+  <div class="section" id="correctionContent" style="display: none;">
+    <h2>Correction</h2>
+    <p>On sépare les variables :</p>
+    <div class="formula">
+      $$ \frac{1}{T - T_{ext}} \, dT = -k \, dt $$
+    </div>
+    <p>Intégration des deux membres :</p>
+    <div class="formula">
+      $$ \int \frac{1}{T - T_{ext}} \, dT = -k \int dt \Rightarrow \ln|T - T_{ext}| = -kt + C $$
+    </div>
+    <p>On exponentie et pose $A = e^C$ :</p>
+    <div class="formula">
+      $$ T(t) - T_{ext} = Ae^{-kt} \Rightarrow T(t) = T_{ext} + Ae^{-kt} $$
+    </div>
+    <p>Application de la condition initiale $T(0) = T_0$ :</p>
+    <div class="formula">
+      $$ T_0 = T_{ext} + A \Rightarrow A = T_0 - T_{ext} $$
+    </div>
+    <p>D’où la solution finale :</p>
+    <div class="formula">
+      $$ \boxed{T(t) = T_{ext} + (T_0 - T_{ext}) e^{-kt}} $$
+    </div>
+  </div>
+
+  <div id="confirmModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <p>Souhaites-tu afficher la correction ?</p>
+      <button class="btn-yes" onclick="confirmYes()">Oui</button>
+      <button class="btn-no" onclick="confirmNo()">Non</button>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <p>© réussit-ton-TOMIC.fr</p>
+  </footer>
+  
+    <script src="js/MathJax.js" async></script>
+    <script src="js/correction.js" async></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Oscillateur harmonique</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+  <nav>
+    <a href="outils-de-physique1.html">Sujet 1 - Physique </a> |
+    <a href="outils-de-physique2.html">Sujet 2 - Physique</a> |
+    <a href="analyse-3d-1.html">Sujet 1 - Analyse 3D </a> |
+    <a href="analyse-3d-2.html">Sujet 2 - Analyse 3D</a> |
+    <a href="sujet-entrainement.html">Sujets d'Entrainement</a> |
+  </nav>
+
+  <h1>Correction - Oscillateur harmonique libre et forcé</h1>
+
+  <div class="section">
+    <h2>Partie I – Oscillateur harmonique libre</h2>
+    <p>On applique le principe fondamental de la dynamique :</p>
+    <div class="formula">$$ \sum F = m \ddot{x} $$</div>
+    <p>La seule force agissant est celle de rappel du ressort, opposée au déplacement :</p>
+    <div class="formula">$$ -k x = m \ddot{x} $$</div>
+    <p>On isole le terme \( \ddot{x} \) :</p>
+<div class="formula">$$ \ddot{x} = -\frac{k}{m} x $$</div>
+    <p>On obtient l'équation différentielle :</p>
+    <div class="formula">$$ \ddot{x} + \omega_0^2 x = 0, \quad \text{avec } \omega_0^2 = \frac{k}{m} $$</div>
+
+    <p>Équation caractéristique :</p>
+    <div class="formula"> $$ r^2 + \omega_0^2 = 0 \Rightarrow r = \pm i \omega_0 $$</div>
+    <p>Donc solution générale :</p>
+    <div class="formula">$$ x(t) = A \cos(\omega_0 t) + B \sin(\omega_0 t) $$</div>
+
+    <p style="font-weight: bold;">Conditions initiales :</p>
+    <p>$$ x(0) = 0{,}1 $$ $$ v(0) = 0 $$</p>
+    <p>On en déduit : $$ A = 0{,}1 $$ $$ B = 0 $$</p>
+
+    <p style="font-weight: bold;">Donc :</p>
+    <div class="formula">$$ x(t) = 0{,}1 \cos(\omega_0 t), \quad v(t) = -0{,}1 \omega_0 \sin(\omega_0 t) $$</div>
+  </div>
+
+  <div class="section">
+    <h2>Partie II – Oscillateur harmonique forcé</h2>
+    <p>Équation avec excitation :</p>
+    <div class="formula">$$ \ddot{x} + \omega_0^2 x = A_e \sin(\omega t), \quad A_e = \frac{F_e}{m} $$</div>
+
+    <p>On pose une solution particulière :</p>
+    <div class="formula">$$ x_p(t) = C \sin(\omega t) $$</div>
+
+    <p>En remplaçant dans l’équation :</p>
+    <div class="formula">$$ -C \omega^2 \sin(\omega t) + \omega_0^2 C \sin(\omega t) = A_e \sin(\omega t) $$</div>
+    <p>On trouve :</p>
+    <div class="formula">$$ C = \frac{A_e}{\omega_0^2 - \omega^2} $$</div>
+
+    <p style="font-weight: bold;">Solution complète :</p>
+    <div class="formula">$$ x(t) = A \cos(\omega_0 t) + B \sin(\omega_0 t) + \frac{A_e}{\omega_0^2 - \omega^2} \sin(\omega t) $$</div>
+
+    <p style="font-weight: bold;">En régime forcé uniquement :</p>
+    <div class="formula">$$ x(t) = \frac{A_e}{\omega_0^2 - \omega^2} \sin(\omega t) $$</div>
+  </div>
+  
+  <footer class="footer">
+    <p>© réussit-ton-TOMIC.fr</p>
+  </footer>
+
+  <script src="js/MathJax.js" async></script>
+  
+</body>
+</html>
