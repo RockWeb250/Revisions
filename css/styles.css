@@ -43,22 +43,6 @@ nav a:hover {
   color: #facc15;
 }
 
-nav.menu-open .burger-line:nth-child(1) {
-  width: 100%;
-  transform: rotate(45deg) translate(4px, 8px);
-}
-
-nav.menu-open .burger-line:nth-child(2) {
-  opacity: 0;
-  width: 0;
-}
-
-nav.menu-open .burger-line:nth-child(3) {
-  width: 100%;
-  transform: rotate(-45deg) translate(4px, -8px);
-}
-
-/* Menu Burger */
 .menu-container {
   display: none;
   width: 100%;  
@@ -73,20 +57,53 @@ nav.menu-open .burger-line:nth-child(3) {
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 10px;
+  padding: 0;
   z-index: 100;
   width: 40px;
   height: 40px;
   margin: 0 auto;
+  position: relative;
 }
 
+/* Lignes du burger - Utiliser un positionnement absolu pour plus de précision */
 .burger-line {
   display: block;
-  width: 100%;
-  height: 3px;
+  position: absolute;
+  width: 24px;  /* Largeur fixe pour plus de cohérence */
+  height: 2px;  /* Hauteur plus fine pour un look moderne */
   background-color: white;
-  margin: 6px 0;
   transition: all 0.3s ease;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Positionnement vertical des lignes */
+.burger-line:nth-child(1) {
+  top: 12px;
+}
+
+.burger-line:nth-child(2) {
+  top: 19px; /* Milieu exact */
+}
+
+.burger-line:nth-child(3) {
+  top: 26px;
+}
+
+/* Animation perfectionnée du menu burger */
+nav.menu-open .burger-line:nth-child(1) {
+  top: 19px; /* Centre la ligne au milieu */
+  transform: translateX(-50%) rotate(45deg);
+}
+
+nav.menu-open .burger-line:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+nav.menu-open .burger-line:nth-child(3) {
+  top: 19px; /* Centre la ligne au milieu */
+  transform: translateX(-50%) rotate(-45deg);
 }
 
 /* Section & Cards */
@@ -341,273 +358,269 @@ nav.menu-open .burger-line:nth-child(3) {
   font-size: 1.1rem;
 }
 
-/* Responsive styles */
+/* ================================================= */
+/* RESPONSIVE STYLES - REFACTORED                    */
+/* ================================================= */
+
+/* Large Tablets & Small Desktops (≤1024px) */
 @media (max-width: 1024px) {
+  /* Layout adjustments */
   .grid-container {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-
+  
   .section {
-      padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem;
   }
+  
+  /* Typography scaling */
+  .card h2 { font-size: 1.1rem; }
+  .card p { font-size: 0.9rem; }
+  .footer { font-size: 1rem; }
 
+  /* Formula handling */
   .formula {
-      font-size: 1rem;
-      padding: 0.8rem;
+    font-size: 1rem;
+    padding: 0.8rem;
   }
-
-  /* Ajout pour le défilement horizontal des formules */
+  
   .formula .MathJax {
-      font-size: 0.95rem !important;
+    font-size: 0.95rem !important;
   }
-
+  
+  /* UI Element scaling */
   .btn {
-      font-size: 0.9rem;
-      padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
   }
-
-  #notification {
-      font-size: 0.9rem;
-      padding: 0.8rem;
-  }
-
-  #confirmModal {
-      padding: 1.5rem;
-      width: 90%;
-  }
-
+  
   .card {
-      padding: 1rem;
+    padding: 1rem;
   }
-
-  .card h2 {
-      font-size: 1.1rem;
-  }
-
-  .card p {
-      font-size: 0.9rem;
-  }
-
+  
   .card a {
-      padding: 0.4rem 0.8rem;
-      font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
   }
-
-  .footer {
-      font-size: 1rem;
+  
+  /* Notifications & Modals */
+  #notification {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+  
+  #confirmModal {
+    padding: 1.5rem;
+    width: 90%;
   }
 }
 
+/* Tablets (≤768px) */
 @media (max-width: 768px) {
+  /* Layout & Container adjustments */
   body {
-      padding: 1rem;
+    padding: 1rem;
   }
-
-  /* Styles de navigation responsive */
+  
+  .grid-container {
+    gap: 1rem;
+  }
+  
+  /* Responsive navigation */
   nav {
-      padding: 0.8rem;
+    padding: 0.8rem;
   }
   
   .menu-container {
-      display: flex;
+    display: flex;
   }
   
   .burger-menu {
-      display: block;
+    display: flex;
   }
   
   .nav-links {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background: #1e3a8a;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      padding: 0;
-      border-radius: 0 0 5px 5px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      z-index: 99;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #1e3a8a;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 99;
   }
   
   nav.menu-open .nav-links {
-      display: flex;
+    display: flex;
   }
   
   nav a {
-      margin: 0;
-      padding: 0.8rem 1rem;
-      font-size: 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      width: 100%;
+    margin: 0;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
   }
   
   nav a:last-child {
-      border-bottom: none;
+    border-bottom: none;
   }
   
-  /* Animation du menu burger */
-  nav.menu-open .burger-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-  }
-  
-  nav.menu-open .burger-line:nth-child(2) {
-      opacity: 0;
-  }
-  
-  nav.menu-open .burger-line:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
-  }
-
-  .grid-container {
-      gap: 1rem;
-  }
-
-  #confirmModal {
-      padding: 1rem;
-  }
-
-  .btn {
-      font-size: 0.85rem;
-      padding: 0.5rem 1rem;
-  }
-
-  .btn-exos {
-      padding: 8px 16px;
-      font-size: 0.9rem;
-      max-width: 220px;
-  }
-
-  .footer {
-      font-size: 0.9rem;
-  }
-
-  /* Ajout pour le scaling des formules sur mobile */
+  /* Formula scaling */
   .formula .MathJax {
-      font-size: 0.9rem !important;
-      transform-origin: center;
-      transform: scale(0.95);
+    font-size: 0.9rem !important;
+    transform-origin: center;
+    transform: scale(0.95);
+  }
+  
+  /* UI Elements */
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .btn-exos {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    max-width: 220px;
+  }
+  
+  #confirmModal {
+    padding: 1rem;
+  }
+  
+  .footer {
+    font-size: 0.9rem;
   }
 }
 
+/* Mobile (≤480px) */
 @media (max-width: 480px) {
+  /* Navigation elements */
   nav {
-      padding: 0.5rem;
+    padding: 0.5rem;
   }
   
   .burger-menu {
-      width: 35px;
-      height: 35px;
+    width: 35px;
+    height: 35px;
   }
   
   .burger-line {
-      height: 2.5px;
-      margin: 5px 0;
+    height: 2.5px;
+    margin: 5px 0;
   }
-
+  
+  /* Content sizing */
   .section {
-      padding: 0.8rem;
+    padding: 0.8rem;
   }
-
-  .formula {
-      font-size: 0.9rem;
-      padding: 0.6rem;
-      margin: 0.8rem 0;
-  }
-
-  /* Ajout pour le scaling des formules sur petits mobiles */
-  .formula .MathJax {
-      font-size: 0.85rem !important;
-      transform: scale(0.9);
-  }
-
-  .btn {
-      font-size: 0.8rem;
-      padding: 0.4rem 0.8rem;
-  }
-
-  .grid-container {
-      gap: 0.8rem;
-  }
-
-  .card {
-      padding: 0.8rem;
-  }
-
-  .card h2 {
-      font-size: 1rem;
-  }
-
-  .card p {
-      font-size: 0.8rem;
-  }
-
-  .card a {
-      font-size: 0.8rem;
-      padding: 0.3rem 0.6rem;
-  }
-
-  #notification {
-      font-size: 0.8rem;
-      padding: 0.6rem;
-      width: 80%;
-      right: 10%;
-      left: 10%;
-  }
-
-  .btn-exos {
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      max-width: 200px;
-      margin: 10px auto;
-  }
-
+  
   h1 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
-
+  
+  /* Formulas */
+  .formula {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    margin: 0.8rem 0;
+  }
+  
+  .formula .MathJax {
+    font-size: 0.85rem !important;
+    transform: scale(0.9);
+  }
+  
+  /* UI Elements */
+  .grid-container {
+    gap: 0.8rem;
+  }
+  
+  .card {
+    padding: 0.8rem;
+  }
+  
+  .card h2 {
+    font-size: 1rem;
+  }
+  
+  .card p {
+    font-size: 0.8rem;
+  }
+  
+  .card a {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .btn-exos {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    max-width: 200px;
+    margin: 10px auto;
+  }
+  
+  /* Notifications & Modals */
+  #notification {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+    width: 80%;
+    right: 10%;
+    left: 10%;
+  }
+  
   #confirmModal {
-      width: 85%;
-      padding: 1rem;
+    width: 85%;
+    padding: 1rem;
   }
-
+  
   #confirmModal button {
-      padding: 0.4rem 0.8rem;
-      font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
   }
-
+  
   .footer {
-      font-size: 0.8rem;
+    font-size: 0.8rem;
   }
 }
 
+/* Small Mobile (≤350px) */
 @media (max-width: 350px) {
   body {
-      padding: 0.7rem;
+    padding: 0.7rem;
   }
   
   .burger-menu {
-      width: 30px;
-      height: 30px;
+    width: 30px;
+    height: 30px;
   }
   
   .burger-line {
-      height: 2px;
-      margin: 4px 0;
+    height: 2px;
+    margin: 4px 0;
   }
   
   .card {
-      padding: 0.7rem;
+    padding: 0.7rem;
   }
   
   .btn-exos {
-      max-width: 180px;
+    max-width: 180px;
   }
-
-  /* Ajout pour le scaling des formules sur très petits écrans */
+  
+  /* Formules scaling for very small screens */
   .formula .MathJax {
-      font-size: 0.8rem !important;
-      transform: scale(0.85);
+    font-size: 0.8rem !important;
+    transform: scale(0.85);
   }
 }
