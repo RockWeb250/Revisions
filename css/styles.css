@@ -62,11 +62,23 @@ nav a:hover {
   text-align: center;
   border-radius: 6px;
   transition: all 0.3s ease;
+  /* Nouvelles propriétés pour la responsivité des formules */
+  overflow-x: auto;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .formula:hover {
   background-color: #e0e7ff;
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+/* MathJax specific responsiveness */
+.formula .MathJax {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0 auto;
 }
 
 .grid-container {
@@ -277,6 +289,11 @@ nav a:hover {
       padding: 0.8rem;
   }
 
+  /* Ajout pour le défilement horizontal des formules */
+  .formula .MathJax {
+      font-size: 0.95rem !important;
+  }
+
   .btn {
       font-size: 0.9rem;
       padding: 0.6rem 1.2rem;
@@ -354,6 +371,13 @@ nav a:hover {
   .footer {
       font-size: 0.9rem;
   }
+
+  /* Ajout pour le scaling des formules sur mobile */
+  .formula .MathJax {
+      font-size: 0.9rem !important;
+      transform-origin: center;
+      transform: scale(0.95);
+  }
 }
 
 @media (max-width: 480px) {
@@ -374,6 +398,13 @@ nav a:hover {
   .formula {
       font-size: 0.9rem;
       padding: 0.6rem;
+      margin: 0.8rem 0;
+  }
+
+  /* Ajout pour le scaling des formules sur petits mobiles */
+  .formula .MathJax {
+      font-size: 0.85rem !important;
+      transform: scale(0.9);
   }
 
   .btn {
@@ -452,5 +483,11 @@ nav a:hover {
   
   .btn-exos {
       max-width: 180px;
+  }
+
+  /* Ajout pour le scaling des formules sur très petits écrans */
+  .formula .MathJax {
+      font-size: 0.8rem !important;
+      transform: scale(0.85);
   }
 }
