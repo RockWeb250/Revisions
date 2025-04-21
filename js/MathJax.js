@@ -11,25 +11,38 @@ window.MathJax = {
   startup: {
     pageReady: function() {
       return MathJax.startup.defaultPageReady().then(function() {
-        // Fonction pour ajuster les formules trop larges
-        const handleFormulaResize = function() {
+        // Fonction pour vérifier si une formule nécessite un défilement
+        const checkFormulaOverflow = function() {
           document.querySelectorAll('.formula').forEach(function(formula) {
-            const mathJaxContainer = formula.querySelector('.MathJax');
-            if (mathJaxContainer && mathJaxContainer.scrollWidth > formula.clientWidth) {
-              // Ajouter une classe pour identifier les formules qui débordent
+            formula.classList.remove('formula-overflow');
+            
+            const mathJax = formula.querySelector('.MathJax');
+            if (!mathJax) return;
+            
+            // Vérifier si la formule est plus large que son conteneur
+            const mathJaxWidth = mathJax.getBoundingClientRect().width;
+            const formulaWidth = formula.clientWidth - 20; // 20px pour les marges internes
+            
+            // Si la formule est vraiment plus large, activer le défilement
+            if (mathJaxWidth > formulaWidth) {
               formula.classList.add('formula-overflow');
-            } else {
-              formula.classList.remove('formula-overflow');
             }
           });
         };
 
-        // Exécuter après un court délai pour laisser MathJax terminer le rendu
-        setTimeout(handleFormulaResize, 500);
+        // Exécuter après un délai pour laisser MathJax terminer le rendu
+        setTimeout(checkFormulaOverflow, 500);
         
         // Réexécuter à chaque redimensionnement de la fenêtre
+        let resizeTimeout;
         window.addEventListener('resize', function() {
-          setTimeout(handleFormulaResize, 100);
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(checkFormulaOverflow, 250);
+        });
+        
+        // S'assurer que tout est bien vérifié après chargement complet
+        window.addEventListener('load', function() {
+          setTimeout(checkFormulaOverflow, 300);
         });
       });
     }

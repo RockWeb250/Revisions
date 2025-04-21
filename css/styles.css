@@ -109,11 +109,19 @@ nav.menu-open .burger-line:nth-child(3) {
   text-align: center;
   border-radius: 6px;
   transition: all 0.3s ease;
-  /* Nouvelles propriétés pour la responsivité des formules */
-  overflow-x: auto;
+  
+  /* Propriétés de défilement optimisées */
+  overflow: hidden;  /* Cache le dépassement par défaut */
   max-width: 100%;
-  display: flex;
-  justify-content: center;
+  display: block;
+}
+
+/* Style pour les formules qui dépassent réellement */
+.formula.formula-overflow {
+  overflow-x: auto;     /* Active le défilement horizontal si nécessaire */
+  overflow-y: hidden;   /* Empêche le défilement vertical */
+  padding-bottom: 0.8rem; /* Espace pour la barre de défilement */
+  border-bottom: 1px dashed #c7d2fe; /* Indicateur visuel de défilement */
 }
 
 .formula:hover {
@@ -123,9 +131,27 @@ nav.menu-open .burger-line:nth-child(3) {
 
 /* MathJax specific responsiveness */
 .formula .MathJax {
-  max-width: 100%;
-  overflow-x: auto;
+  display: inline-block;
+  max-width: none;  /* Permet au MathJax d'avoir sa taille naturelle */
   margin: 0 auto;
+}
+
+/* Style des barres de défilement pour les navigateurs qui le supportent */
+.formula.formula-overflow::-webkit-scrollbar {
+  height: 6px;  
+}
+
+.formula.formula-overflow::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 3px;
+}
+
+.formula.formula-overflow::-webkit-scrollbar-track {
+  background: #eef2ff; 
+}
+
+.formula::-webkit-scrollbar-track {
+  background: #eef2ff;
 }
 
 .grid-container {

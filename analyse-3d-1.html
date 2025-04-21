@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Correction – Champ vectoriel et potentiel scalaire</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/MathJax.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 <body>
@@ -26,26 +27,29 @@
     <div class="formula">
       $$
       \vec{\text{rot}}(\vec{V}) = \nabla \times \vec{V} = 
-      \left| \begin{array}{ccc}
+      \begin{vmatrix}
       \vec{i} & \vec{j} & \vec{k} \\
       \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
       y & x+z & y + 2z
-      \end{array} \right|
+      \end{vmatrix}
       $$
     </div>
 
     <p><strong>b)</strong> Calculons ce déterminant :</p>
     <div class="formula">
       $$
-      \vec{\text{rot}}(\vec{V}) = \left(\frac{\partial (y + 2z)}{\partial y} - \frac{\partial (x+z)}{\partial z},
+      \begin{align}
+      \vec{\text{rot}}(\vec{V}) &= \left(\frac{\partial (y + 2z)}{\partial y} - \frac{\partial (x+z)}{\partial z},
       \frac{\partial y}{\partial z} - \frac{\partial (y + 2z)}{\partial x},
-      \frac{\partial (x+z)}{\partial x} - \frac{\partial y}{\partial y}\right) = (1 - 1, 0 - 0, 1 - 1) = (0, 0, 0)
+      \frac{\partial (x+z)}{\partial x} - \frac{\partial y}{\partial y}\right) \\
+      &= (1 - 1, 0 - 0, 1 - 1) = (0, 0, 0)
+      \end{align}
       $$
     </div>
 
     <p>Donc :</p>
     <div class="formula">$$ \vec{\text{rot}}(\vec{V}) = \vec{0} $$</div>
-    <p>Le champ est donc <strong>conservatif</strong> et dérive bien d’un potentiel scalaire.</p>
+    <p>Le champ est donc <strong>conservatif</strong> et dérive bien d'un potentiel scalaire.</p>
   </div>
 
   <div class="section">
@@ -89,7 +93,6 @@
     <p>© réussit-ton-TOMIC.fr</p>
   </footer>
   
-  <script src="js/MathJax.js" async></script>
   <script src="js/menu-burger.js"></script>
 </body>
 </html>
