@@ -27,20 +27,25 @@ nav {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   position: relative;
+  text-align: center;
 }
 
 nav a {
-  display: inline-flex;
-  color: white;
+  display: inline-block;
   text-decoration: none;
-  margin: 0 1.5rem;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: color 0.3s;
+  color: white; 
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin: 0 3px;
 }
 
 nav a:hover {
-  color: #facc15;
+  background-color: rgb(142, 142, 219);
+  color: white;
 }
 
 .menu-container {
@@ -414,6 +419,15 @@ nav.menu-open .burger-line:nth-child(3) {
     padding: 1.5rem;
     width: 90%;
   }
+
+  nav a:hover {
+    border-radius: 3px;
+    background-color: rgb(142, 142, 219);
+    color: white;
+    transition: background-color 0.2s; 
+    max-width: 95%;
+  }
+  
 }
 
 /* Tablets (≤768px) */
@@ -464,10 +478,19 @@ nav.menu-open .burger-line:nth-child(3) {
     font-size: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     width: 100%;
+    border-radius: 0; 
   }
   
   nav a:last-child {
     border-bottom: none;
+    border-radius: 0 0 5px 5px;
+  }
+  
+  nav a:hover {
+    background-color: rgba(142, 142, 219, 0.9);
+    color: white;
+    text-indent: 5px; 
+    transition: all 0.2s ease;
   }
   
   /* Formula scaling */
@@ -514,6 +537,16 @@ nav.menu-open .burger-line:nth-child(3) {
     height: 2.5px;
     margin: 5px 0;
   }
+
+  nav a {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.95rem;
+  }
+  
+  nav a:hover {
+    background-color: rgba(142, 142, 219, 0.8);
+    text-indent: 8px; 
+
   
   /* Content sizing */
   .section {
@@ -609,6 +642,15 @@ nav.menu-open .burger-line:nth-child(3) {
     height: 2px;
     margin: 4px 0;
   }
+
+  nav a {
+    padding: 0.6rem 0.7rem;
+    font-size: 0.9rem;
+  }
+  
+  nav a:hover {
+    background-color: rgba(142, 142, 219, 0.7); 
+  }
   
   .card {
     padding: 0.7rem;
@@ -623,4 +665,5 @@ nav.menu-open .burger-line:nth-child(3) {
     font-size: 0.8rem !important;
     transform: scale(0.85);
   }
+}
 }
